@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f0eafa">
+    <meta name="description" content="Jocs del tema 1 de Valencià: ordre alfabètic, comunicació i narració.">
+    <title>Repàs de valencià · Repassem a casa</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body data-page="valencia">
+    <a class="skip-link" href="#contingut">Ves al contingut</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html#inici" aria-label="Repassem a casa, inici">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span class="brand-name">Repassem <span>a casa</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegació principal">
+          <a href="./index.html#activitats">Inici</a>
+          <a href="./index.html#targetes">Targetes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="science-page-hero" aria-labelledby="valencia-title">
+        <p class="eyebrow">Valencià <span aria-hidden="true">·</span> Tema 1</p>
+        <h1 id="valencia-title">Repàs de valencià</h1>
+        <p>Posa les paraules en ordre, descobrix els elements de la comunicació i construïx les peces d’una narració.</p>
+        <a class="back-link" href="./index.html#activitats">← Torna a totes les activitats</a>
+      </section>
+
+      <section class="section-block science-games" aria-labelledby="games-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Diccionari, comunicació i narració</p>
+            <h2 id="games-title">Tria un joc</h2>
+          </div>
+          <p class="section-description">Les respostes es corregixen en el moment. No es guarden puntuacions.</p>
+        </div>
+        <div class="filters activity-filters">
+          <label for="game-topic-filter">Tema
+            <select id="game-topic-filter" aria-label="Filtra els jocs per tema">
+              <option value="all">Tots els temes</option>
+            </select>
+          </label>
+          <p class="filter-count" id="game-filter-count" role="status"></p>
+        </div>
+        <div class="activity-grid" id="activity-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="privacy-band science-privacy" aria-labelledby="valencia-privacy-title">
+        <div class="privacy-symbol" aria-hidden="true">✓</div>
+        <div>
+          <p class="eyebrow">Practica amb tranquil·litat</p>
+          <h2 id="valencia-privacy-title">Sense comptes ni resultats guardats</h2>
+          <p>Les activitats funcionen en este dispositiu. Les respostes només servixen per a corregir cada intent i no s'envien ni es desen.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="./index.html#inici">Repassem a casa</a>
+      <p>Activitats de repàs per a 5é de Primària · CEIP Bonavista</p>
+    </footer>
+
+    <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-topbar">
+        <div>
+          <p class="eyebrow" id="dialog-subject"></p>
+          <h2 id="dialog-title"></h2>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="Tanca l'activitat">×</button>
+      </div>
+      <div class="dialog-content" id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>

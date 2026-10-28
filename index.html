@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173c43">
+    <meta name="description" content="Activitats de repàs per a 5é de Primària del CEIP Bonavista.">
+    <title>Repassem a casa · 5é de Primària</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Ves al contingut</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#inici" aria-label="Repassem a casa, inici">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span class="brand-name">Repassem <span>a casa</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegació principal">
+          <a href="#activitats">Activitats</a>
+          <a href="#targetes">Targetes</a>
+          <a href="#privacitat">Privacitat</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="hero" id="inici" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">5é de Primària <span aria-hidden="true">·</span> CEIP Bonavista</p>
+          <h1 id="hero-title">Repassem a casa</h1>
+          <p class="hero-lede">Un espai tranquil per a practicar, descobrir i avançar al teu ritme.</p>
+          <a class="button button-primary" href="#activitats">Tria una activitat <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-note" aria-label="Aprenentatge al teu ritme">
+          <div class="learning-art" aria-hidden="true">
+            <span class="art-spark">✦</span>
+            <span class="art-card art-science"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M23 8h18M27 8v18L13 49q-3 7 5 7h28q8 0 5-7L37 26V8M19 40h26"/><circle cx="28" cy="47" r="2"/></svg></span>
+            <span class="art-card art-language">Aa</span>
+            <span class="art-card art-math">× +<span>un nou repte</span></span>
+            <span class="art-card art-castella">ñ</span>
+          </div>
+          <span class="hero-note-caption">Al teu ritme. Cada dia, un descobriment.</span>
+        </div>
+      </section>
+
+      <section class="intro-strip" aria-label="Característiques de les activitats">
+        <p><span class="status-dot" aria-hidden="true"></span> Correcció immediata</p>
+        <p>Sense comptes ni dades personals</p>
+        <p>Per a ordinador, tauleta i mòbil</p>
+      </section>
+
+      <section class="section-block" id="activitats" aria-labelledby="activities-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Aprén practicant</p>
+            <h2 id="activities-title">Tria una secció</h2>
+          </div>
+          <p class="section-description">Cada activitat et diu al moment si la resposta és correcta.</p>
+        </div>
+        <div class="activity-grid" id="activity-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section-block flashcard-section" id="targetes" aria-labelledby="flashcards-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Recorda i practica</p>
+            <h2 id="flashcards-title">Targetes de repàs</h2>
+          </div>
+          <p class="section-description">Filtra per assignatura i tema. Gira cada targeta per a veure la resposta.</p>
+        </div>
+        <div class="filters" aria-label="Filtres de les targetes">
+          <label>
+            <span>Assignatura</span>
+            <select id="subject-filter" aria-label="Filtra per assignatura">
+              <option value="all">Totes les assignatures</option>
+            </select>
+          </label>
+          <label>
+            <span>Tema</span>
+            <select id="topic-filter" aria-label="Filtra per tema">
+              <option value="all">Tots els temes</option>
+            </select>
+          </label>
+          <p class="filter-count" id="filter-count" aria-live="polite"></p>
+        </div>
+        <div class="flashcard-player" id="flashcard-player">
+          <p class="flashcard-counter" id="flashcard-counter" aria-live="polite"></p>
+          <article class="study-card" aria-labelledby="flashcard-prompt">
+            <div class="flashcard-meta">
+              <span class="subject-pill" id="flashcard-subject"></span>
+              <span class="topic-label" id="flashcard-topic"></span>
+            </div>
+            <p class="flashcard-prompt" id="flashcard-prompt"></p>
+            <p class="flashcard-answer" id="flashcard-answer" hidden></p>
+            <button class="button button-secondary" id="flip-card" type="button" aria-expanded="false" aria-controls="flashcard-answer">Mostra la resposta</button>
+          </article>
+          <div class="flashcard-controls" aria-label="Navegació per les targetes">
+            <button class="button button-quiet" id="previous-card" type="button">Anterior</button>
+            <button class="button button-primary" id="next-card" type="button">Següent</button>
+          </div>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>No hi ha targetes per a esta combinació. Tria altres filtres.</p>
+      </section>
+
+      <section class="privacy-band" id="privacitat" aria-labelledby="privacy-title">
+        <div class="privacy-symbol" aria-hidden="true">✓</div>
+        <div>
+          <p class="eyebrow">Aprendre amb tranquil·litat</p>
+          <h2 id="privacy-title">Les teues respostes es queden ací</h2>
+          <p>Les activitats funcionen en este dispositiu. No cal registrar-se i les respostes ni les puntuacions no es guarden ni s'envien.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#inici">Repassem a casa</a>
+      <p>Activitats de repàs per a 5é de Primària · CEIP Bonavista</p>
+    </footer>
+
+    <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-topbar">
+        <div>
+          <p class="eyebrow" id="dialog-subject"></p>
+          <h2 id="dialog-title"></h2>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="Tanca l'activitat">×</button>
+      </div>
+      <div class="dialog-content" id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>

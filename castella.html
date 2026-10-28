@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#e7f2ff">
+    <meta name="description" content="Juegos del tema 1 de Castellano: comunicación, acentuación y géneros literarios.">
+    <title>Repaso de castellano · Repassem a casa</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body data-page="castella">
+    <a class="skip-link" href="#contingut">Ir al contenido</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html#inici" aria-label="Repassem a casa, inicio">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span class="brand-name">Repassem <span>a casa</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="./index.html#activitats">Inicio</a>
+          <a href="./index.html#targetes">Tarjetas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="science-page-hero" aria-labelledby="castella-title">
+        <p class="eyebrow">Castellano <span aria-hidden="true">·</span> Tema 1</p>
+        <h1 id="castella-title">Repaso de castellano</h1>
+        <p>Descubre los elementos de la comunicación, clasifica las palabras por la sílaba tónica y explora los géneros literarios.</p>
+        <a class="back-link" href="./index.html#activitats">← Volver a todas las actividades</a>
+      </section>
+
+      <section class="section-block science-games" aria-labelledby="games-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Comunicación, acentuación y literatura</p>
+            <h2 id="games-title">Elige un juego</h2>
+          </div>
+          <p class="section-description">Las respuestas se corrigen al momento. No se guardan puntuaciones.</p>
+        </div>
+        <div class="filters activity-filters">
+          <label for="game-topic-filter">Tema
+            <select id="game-topic-filter" aria-label="Filtrar juegos por tema">
+              <option value="all">Todos los temas</option>
+            </select>
+          </label>
+          <p class="filter-count" id="game-filter-count" role="status"></p>
+        </div>
+        <div class="activity-grid" id="activity-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="privacy-band science-privacy" aria-labelledby="castella-privacy-title">
+        <div class="privacy-symbol" aria-hidden="true">✓</div>
+        <div>
+          <p class="eyebrow">Practica con tranquilidad</p>
+          <h2 id="castella-privacy-title">Sin cuentas ni resultados guardados</h2>
+          <p>Las actividades funcionan en este dispositivo. Las respuestas solo sirven para corregir cada intento y no se envían ni se guardan.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="./index.html#inici">Repassem a casa</a>
+      <p>Actividades de repaso para 5.º de Primaria · CEIP Bonavista</p>
+    </footer>
+
+    <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-topbar">
+        <div>
+          <p class="eyebrow" id="dialog-subject"></p>
+          <h2 id="dialog-title"></h2>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="Cerrar la actividad">×</button>
+      </div>
+      <div class="dialog-content" id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>
