@@ -52,7 +52,7 @@ const getPageActivities = () => ({ science: scienceActivities, mental: mentalAct
 const gameTopicFilter = document.querySelector("#game-topic-filter");
 function buildGameTopicFilter() {
   if (!gameTopicFilter) return;
-  const topics = [...new Set(getPageActivities().map(activity => activity.topic))].filter(Boolean).sort((a,b) => a.localeCompare(b, "ca", {numeric:true}));
+  const topics = [...new Set(["Tema 1", "Tema 2", ...getPageActivities().map(activity => activity.topic)])].filter(Boolean).sort((a,b) => a.localeCompare(b, "ca", {numeric:true}));
   for (const topic of topics) {
     const option = document.createElement("option");
     option.value = topic;
@@ -68,6 +68,10 @@ function renderActivities() {
   if (gameTopicFilter) {
     const spanish = document.body.dataset.page === "castella";
     document.querySelector("#game-filter-count").textContent = `${pageActivities.length} ${spanish ? (pageActivities.length === 1 ? "juego" : "juegos") : (pageActivities.length === 1 ? "joc" : "jocs")}`;
+  }
+  if (gameTopicFilter && pageActivities.length === 0) {
+    const message = document.body.dataset.page === "castella" ? "Todavía no hay juegos para este tema." : "Encara no hi ha jocs per a este tema.";
+    activityGrid.append(createElement("p", "empty-state", message));
   }
   for (const activity of pageActivities) {
     const card = createElement("article", "activity-card");
@@ -117,7 +121,7 @@ function refreshTopicFilter() {
   const matchingCards = selectedSubject === "all"
     ? flashcards
     : flashcards.filter((card) => card.subject === selectedSubject);
-  const topics = [...new Set(matchingCards.map((card) => card.topic))].sort((a, b) => a.localeCompare(b, "ca"));
+  const topics = [...new Set(["Tema 1", "Tema 2", ...matchingCards.map((card) => card.topic)])].sort((a, b) => a.localeCompare(b, "ca", { numeric: true }));
   topicFilter.replaceChildren();
   const allOption = document.createElement("option");
   allOption.value = "all";
