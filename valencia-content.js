@@ -1,3 +1,4 @@
+import { valenciaTopic2Cards, valenciaTopic2Games } from "./valencia-tema-2.js";
 export const valenciaFlashcards = [
   {
     "subject": "Valencià",
@@ -347,3 +348,6 @@ export const valenciaActivities = [
   ]},
   {id:'narracio',title:'Les peces d’una narració',subject:'Valencià', topic: 'Tema 1',description:'Relaciona els elements i les parts d’una narració amb la seua definició.',detail:'7 parelles · Narració',kind:'matching',pairs:narrativePairs,icon:'03'},
 ];
+
+valenciaFlashcards.push(...valenciaTopic2Cards);
+valenciaActivities.push(...valenciaTopic2Games);
