@@ -127,7 +127,7 @@ activities[mathsIndex] = { id: "matematiques-seccio", title: "Repàs de matemàt
 const languageIndex = activities.findIndex(activity => activity.id === "llengues");
 activities[languageIndex] = { id: "valencia-seccio", title: "Repàs de valencià", subject: "Valencià", description: "Practica vocabulari, comunicació, gramàtica i poesia.", detail: "Temes 1 i 2 · 8 jocs", kind: "link", href: "./valencia.html", icon: "04" };
 
-activities.splice(languageIndex + 1, 0, { id: "castella-seccio", title: "Repaso de castellano", subject: "Castellano", description: "Practica el tema 1: comunicación, sílabas, acentuación y géneros literarios.", detail: "Tema 1 · 4 juegos", kind: "link", href: "./castella.html", icon: "05" });
+activities.splice(languageIndex + 1, 0, { id: "castella-seccio", title: "Repaso de castellano", subject: "Castellano", description: "Practica textos, comunicación, palabras y literatura.", detail: "Temas 1 y 2 · 8 juegos", kind: "link", href: "./castella.html", icon: "05" });
 
 export const scienceActivities = allActivities.filter((activity) => activity.subject === "Ciències");
 scienceActivities.unshift({
