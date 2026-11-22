@@ -124,7 +124,7 @@ const mathsIndex = activities.findIndex(activity => activity.id === "matematique
 activities[mathsIndex] = { id: "matematiques-seccio", title: "Repàs de matemàtiques", subject: "Matemàtiques", description: "Repassa els nombres, les operacions, les potències i els múltiples.", detail: "Temes 1 i 2 · 7 jocs", kind: "link", href: "./matematiques.html", icon: "05" };
 
 const languageIndex = activities.findIndex(activity => activity.id === "llengues");
-activities[languageIndex] = { id: "valencia-seccio", title: "Repàs de valencià", subject: "Valencià", description: "Practica el tema 1 de Valencià: diccionari, comunicació i narració.", detail: "Valencià · Tema 1 · 3 jocs", kind: "link", href: "./valencia.html", icon: "04" };
+activities[languageIndex] = { id: "valencia-seccio", title: "Repàs de valencià", subject: "Valencià", description: "Practica vocabulari, comunicació, gramàtica i poesia.", detail: "Temes 1 i 2 · 8 jocs", kind: "link", href: "./valencia.html", icon: "04" };
 
 activities.splice(languageIndex + 1, 0, { id: "castella-seccio", title: "Repaso de castellano", subject: "Castellano", description: "Practica el tema 1: comunicación, sílabas, acentuación y géneros literarios.", detail: "Tema 1 · 4 juegos", kind: "link", href: "./castella.html", icon: "05" });
 
