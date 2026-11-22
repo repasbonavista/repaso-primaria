@@ -145,11 +145,9 @@ function renderFlashcards() {
     const matchesTopic = selectedTopic === "all" || card.topic === selectedTopic;
     return matchesSubject && matchesTopic;
   });
-  if (selectedSubject === "all" && selectedTopic === "all") {
-    for (let i = visibleFlashcards.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [visibleFlashcards[i], visibleFlashcards[j]] = [visibleFlashcards[j], visibleFlashcards[i]];
-    }
+  for (let i = visibleFlashcards.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [visibleFlashcards[i], visibleFlashcards[j]] = [visibleFlashcards[j], visibleFlashcards[i]];
   }
   currentFlashcardIndex = 0;
   filterCount.textContent = `${visibleFlashcards.length} ${selectedSubject === "Castellano" ? (visibleFlashcards.length === 1 ? "tarjeta" : "tarjetas") : (visibleFlashcards.length === 1 ? "targeta" : "targetes")}`;
