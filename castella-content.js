@@ -1,3 +1,4 @@
+import { castellanoTema2Cards, castellanoTema2Games } from "./castellano-tema-2.js";
 export const castellaFlashcards = [
   {
     "subject": "Castellano",
@@ -659,3 +660,6 @@ export const castellaActivities = [
     ]
   }
 ];
+
+castellaFlashcards.push(...castellanoTema2Cards);
+castellaActivities.push(...castellanoTema2Games);
