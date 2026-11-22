@@ -1,3 +1,4 @@
+import { extraQuestions } from "./preguntes-extra.js";
 import { activities, flashcards, labelingSystems, matchingPairs, scienceActivities, mentalActivities } from "./content.js";
 import { openTimedGame, stopTimedGame } from "./timed-games.js";
 import { mathActivities, buildRoundingQuestions } from "./math-content.js";
@@ -222,7 +223,10 @@ function openActivity(activity) {
     dialog.showModal();
     return;
   }
-  const questions = activity.kind === "rounding" ? buildRoundingQuestions() : activity.kind === "mental" ? makeMentalQuestions() : activity.questions;
+  const questions = activity.kind === "rounding" ? buildRoundingQuestions() : activity.kind === "mental" ? makeMentalQuestions() : activity.kind === "quiz" ? shuffleItems([...activity.questions, ...extraQuestions(activity.id)]).slice(0, 10).map((item) => {
+    const choices = shuffleItems(item.options.map((text, index) => ({text, correct: index === item.answer})));
+    return { ...item, options: choices.map(choice => choice.text), answer: choices.findIndex(choice => choice.correct) };
+  }) : activity.questions;
   session = { activity, questions, index: 0, score: 0, answered: false };
   renderQuestion();
   dialog.showModal();
