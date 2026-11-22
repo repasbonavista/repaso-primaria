@@ -1,3 +1,4 @@
+import { mathTopic2Cards, mathTopic2Games } from "./math-tema-2.js";
 export const mathFlashcards = [
   {
     "subject": "Matemàtiques",
@@ -337,6 +338,8 @@ export const mathPropertyPairs = [
   { id: 'fonamental', term: 'Propietat fonamental de la resta', definition: '90 − 30 = 95 − 35: sumem 5 al minuend i al subtrahend.' },
 ];
 
+mathFlashcards.push(...mathTopic2Cards);
+
 export const mathActivities = [
   { id: 'arredonir', title: 'Arredonix els nombres', subject: 'Matemàtiques', topic: 'Tema 1', description: 'Escriu l’aproximació correcta a centenes, milers o milions.', detail: '10 reptes · Amb explicacions', kind: 'rounding', icon: '01' },
   { id: 'propietats', title: 'Relaciona les propietats', subject: 'Matemàtiques', topic: 'Tema 1', description: 'Relaciona cada propietat amb l’operació que la representa.', detail: '3 parelles · Propietats', kind: 'matching', pairs: mathPropertyPairs, icon: '02' },
@@ -353,6 +356,8 @@ export const mathActivities = [
     {question:'Quin és l’ordre major de 234 821?',options:['Unitats de miler','Centenes de miler','Unitats de milió'],answer:1,explanation:'Té sis xifres; la primera ocupa les centenes de miler.'},
   ] },
 ];
+
+mathActivities.push(...mathTopic2Games);
 
 const roundingBank = [
   [330000,100000],[452782,1000],[3457834,1000],[3457834,100000],
