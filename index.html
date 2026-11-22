@@ -96,6 +96,17 @@
             <p class="flashcard-answer" id="flashcard-answer" hidden></p>
             <button class="button button-secondary" id="flip-card" type="button" aria-expanded="false" aria-controls="flashcard-answer">Mostra la resposta</button>
           </article>
+          <div id="flashcard-rating" class="flashcard-rating" hidden>
+            <p id="flashcard-rating-prompt">Com t’ha anat? Valora la teua resposta.</p>
+            <div class="flashcard-rating-buttons" role="group" aria-labelledby="flashcard-rating-prompt">
+              <button id="flashcard-good" class="rating-button rating-good" type="button" aria-pressed="false"><span aria-hidden="true">👍</span> <span id="flashcard-good-label">Bé</span></button>
+              <button id="flashcard-bad" class="rating-button rating-bad" type="button" aria-pressed="false"><span aria-hidden="true">👎</span> <span id="flashcard-bad-label">Malament</span></button>
+            </div>
+          </div>
+          <div class="flashcard-results" aria-live="polite" aria-atomic="true">
+            <p id="flashcard-results-summary">Encara no has valorat cap resposta.</p>
+            <button id="flashcard-reset-results" type="button" class="results-reset">Reinicia la sessió</button>
+          </div>
           <div class="flashcard-controls" aria-label="Navegació per les targetes">
             <button class="button button-quiet" id="previous-card" type="button">Anterior</button>
             <button class="button button-primary" id="next-card" type="button">Següent</button>
