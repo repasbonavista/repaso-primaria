@@ -1,3 +1,4 @@
+import { scienceTopic2Cards, scienceTopic2Games } from "./ciencies-tema-2.js";
 import { castellaFlashcards } from "./castella-content.js";
 import { valenciaFlashcards } from "./valencia-content.js";
 import { mathFlashcards } from "./math-content.js";
@@ -113,8 +114,8 @@ activities.splice(1, 0, {
   title: "Repàs de ciències",
   subject: "Ciències",
     topic: "Tema 1",
-  description: "Tria un joc per a repassar el cos humà i la funció de nutrició.",
-  detail: "Tema 1 · 4 jocs",
+  description: "Tria un joc per a repassar el cos humà, els nutrients i l’alimentació.",
+  detail: "Temes 1 i 2 · 8 jocs",
   kind: "link",
   href: "./ciencies.html",
   icon: "03",
@@ -140,6 +141,8 @@ scienceActivities.unshift({
   icon: "01",
 });
 
+scienceActivities.push(...scienceTopic2Games);
+
 export const matchingPairs = [
   { id: "digestiu", term: "Aparell digestiu", definition: "Descompon els aliments i n'extrau els nutrients." },
   { id: "respiratori", term: "Aparell respiratori", definition: "Obté oxigen de l'aire i expulsa diòxid de carboni." },
@@ -152,6 +155,7 @@ export const matchingPairs = [
 ];
 
 export const flashcards = [
+  ...scienceTopic2Cards,
   ...mathFlashcards,
   ...valenciaFlashcards,
   ...castellaFlashcards,
