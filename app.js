@@ -25,12 +25,18 @@ const flashcardAnswer = document.querySelector("#flashcard-answer");
 const flipCardButton = document.querySelector("#flip-card");
 const previousCardButton = document.querySelector("#previous-card");
 const nextCardButton = document.querySelector("#next-card");
+const flashcardRating = document.querySelector("#flashcard-rating");
+const flashcardGood = document.querySelector("#flashcard-good");
+const flashcardBad = document.querySelector("#flashcard-bad");
+const flashcardResults = document.querySelector("#flashcard-results-summary");
+const flashcardReset = document.querySelector("#flashcard-reset-results");
 
 let session = null;
 let labelingState = null;
 let matchingState = null;
 let visibleFlashcards = [];
 let currentFlashcardIndex = 0;
+let flashcardRatings = new Map();
 
 const spanishText = {
   "Tria un joc": "Elige un juego", "Comença l'activitat": "Empezar la actividad",
@@ -150,12 +156,39 @@ function renderFlashcards() {
     [visibleFlashcards[i], visibleFlashcards[j]] = [visibleFlashcards[j], visibleFlashcards[i]];
   }
   currentFlashcardIndex = 0;
+  flashcardRatings.clear();
+  renderFlashcardResults();
   filterCount.textContent = `${visibleFlashcards.length} ${selectedSubject === "Castellano" ? (visibleFlashcards.length === 1 ? "tarjeta" : "tarjetas") : (visibleFlashcards.length === 1 ? "targeta" : "targetes")}`;
   emptyState.hidden = visibleFlashcards.length > 0;
   flashcardPlayer.hidden = visibleFlashcards.length === 0;
   renderCurrentFlashcard();
 }
 
+function renderFlashcardResults() {
+  if (!flashcardResults) return;
+  const total = flashcardRatings.size;
+  const correct = [...flashcardRatings.values()].filter(value => value === "good").length;
+  const incorrect = total - correct;
+  const goodPercent = total ? Math.round(correct * 100 / total) : 0;
+  const badPercent = total ? 100 - goodPercent : 0;
+  const spanish = subjectFilter?.value === "Castellano";
+  flashcardResults.textContent = total
+    ? (spanish ? `${total} valoradas · Bien: ${correct} (${goodPercent} %) · Mal: ${incorrect} (${badPercent} %)` : `${total} valorades · Bé: ${correct} (${goodPercent} %) · Malament: ${incorrect} (${badPercent} %)`)
+    : (spanish ? "Todavía no has valorado ninguna respuesta." : "Encara no has valorat cap resposta.");
+  flashcardReset.textContent = spanish ? "Reiniciar la sesión" : "Reinicia la sessió";
+}
+function renderFlashcardRating() {
+  if (!flashcardRating) return;
+  const card = visibleFlashcards[currentFlashcardIndex];
+  const spanish = card?.subject === "Castellano";
+  const value = flashcardRatings.get(card);
+  flashcardRating.hidden = flashcardAnswer.hidden;
+  document.querySelector("#flashcard-rating-prompt").textContent = spanish ? "¿Cómo te ha ido? Valora tu respuesta." : "Com t’ha anat? Valora la teua resposta.";
+  document.querySelector("#flashcard-good-label").textContent = spanish ? "Bien" : "Bé";
+  document.querySelector("#flashcard-bad-label").textContent = spanish ? "Mal" : "Malament";
+  flashcardGood.setAttribute("aria-pressed", String(value === "good"));
+  flashcardBad.setAttribute("aria-pressed", String(value === "bad"));
+}
 function renderCurrentFlashcard() {
   const card = visibleFlashcards[currentFlashcardIndex];
   if (!card) return;
@@ -173,6 +206,7 @@ function renderCurrentFlashcard() {
   flipCardButton.setAttribute("aria-expanded", "false");
   previousCardButton.disabled = currentFlashcardIndex === 0;
   nextCardButton.disabled = currentFlashcardIndex === visibleFlashcards.length - 1;
+  renderFlashcardRating();
 }
 
 function openActivity(activity) {
@@ -737,6 +771,21 @@ if (subjectFilter && topicFilter && flipCardButton) {
     flashcardAnswer.hidden = !showingAnswer;
     flipCardButton.textContent = visibleFlashcards[currentFlashcardIndex]?.subject === "Castellano" ? (showingAnswer ? "Volver a la pregunta" : "Mostrar la respuesta") : (showingAnswer ? "Torna a la pregunta" : "Mostra la resposta");
     flipCardButton.setAttribute("aria-expanded", String(showingAnswer));
+    renderFlashcardRating();
+  });
+  const setRating = value => {
+    const card = visibleFlashcards[currentFlashcardIndex];
+    if (!card || flashcardAnswer.hidden) return;
+    flashcardRatings.set(card, value);
+    renderFlashcardRating();
+    renderFlashcardResults();
+  };
+  flashcardGood?.addEventListener("click", () => setRating("good"));
+  flashcardBad?.addEventListener("click", () => setRating("bad"));
+  flashcardReset?.addEventListener("click", () => {
+    flashcardRatings.clear();
+    renderFlashcardRating();
+    renderFlashcardResults();
   });
   previousCardButton.addEventListener("click", () => {
     if (currentFlashcardIndex === 0) return;
