@@ -389,3 +389,17 @@ body[data-page="castella"] .privacy-symbol { background: #cde2fa; color: #275885
 
 .activity-topic { font-size: .75rem; color: var(--subject-ink, var(--muted)); font-weight: 700; white-space: nowrap; }
 .activity-filters { background: rgba(255,255,255,.75); }
+
+.flashcard-rating { margin-top: 1rem; text-align: center; }
+.flashcard-rating[hidden] { display: none; }
+.flashcard-rating p { margin: 0 0 .7rem; font-size: .93rem; font-weight: 650; }
+.flashcard-rating-buttons { display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
+.rating-button { min-width: 138px; min-height: 48px; padding: .65rem 1.15rem; border: 2px solid transparent; border-radius: 14px; font: inherit; font-weight: 750; cursor: pointer; }
+.rating-good { color: #155a38; background: #d8f1df; border-color: #80c69a; }
+.rating-bad { color: #8b2d2d; background: #fde1de; border-color: #e6a29e; }
+.rating-good[aria-pressed="true"] { color: white; background: #287b4d; border-color: #1d613c; }
+.rating-bad[aria-pressed="true"] { color: white; background: #aa4540; border-color: #89332f; }
+.rating-button:focus-visible, .results-reset:focus-visible { outline: 3px solid #2261a4; outline-offset: 3px; }
+.flashcard-results { margin: 1rem 0; text-align: center; color: var(--ink); }
+.flashcard-results p { margin: 0 0 .4rem; font-size: .9rem; }
+.results-reset { min-height: 44px; border: 0; padding: .5rem; background: transparent; color: #315d60; font: inherit; text-decoration: underline; cursor: pointer; }
