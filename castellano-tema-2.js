@@ -88,3 +88,30 @@ q('«Una mañana, Leo exploró una cueva». ¿Cuál es la acción?',['Explorar u
 q('En «Ellos llegaron al bosque», el narrador usa…',['Tercera persona','Primera persona','Una enumeración'],0,'Ellos es una forma de tercera persona.'),q('¿Puede una narración tener personajes secundarios?',['Sí','No','Solo si no hay protagonista'],0,'Además del protagonista pueden intervenir otros personajes.'),
 q('¿Qué conjunto recoge elementos de la narración?',['Narrador, personajes, espacio, tiempo y acción','Coma, punto y dos puntos','Raíz, prefijo y sufijo'],0,'Esos cinco elementos ayudan a analizar una historia.') ]}
 ].map(game=>({...game,subject:'Castellano',topic:'Tema 2',kind:'quiz',icon:'03'}));
+const extra={
+'ct2-textos':[
+q('¿Qué tipo de texto suele ser un plano del barrio con símbolos y nombres?',['Discontinuo','Continuo','Una narración oral'],0,'Un plano organiza la información para consultarla en distintos puntos.'),
+q('¿Qué conector puede introducir una causa?',['Porque','Después','Finalmente'],0,'«Porque» permite explicar una causa.'),
+q('Si un texto mezcla ideas sin relación, ¿qué propiedad necesita mejorar?',['La coherencia','La longitud de las palabras','El color de la página'],0,'La coherencia exige relación y orden entre las ideas.'),
+q('¿Qué puede ayudar a unir dos frases relacionadas?',['Un conector','Una cifra al azar','Una letra suelta'],0,'Un conector expresa la relación entre ideas.'),
+q('Una conversación entre dos personas es un texto…',['Oral','Necesariamente discontinuo','Escrito siempre'],0,'Una conversación hablada es un texto oral.')],
+'ct2-palabras':[
+q('¿Cuál es una palabra derivada de «papel»?',['Papelera','Pared','Pelota'],0,'Papelera se forma a partir de papel.'),
+q('¿Qué raíz comparten «zapato» y «zapatilla»?',['Zapat-','-illa','-o'],0,'Comparten la raíz zapat-.'),
+q('¿Qué indica la -s final de «casas»?',['Plural','Tiempo futuro','Prefijo'],0,'La -s indica número plural.'),
+q('¿Cuál es un antónimo de «hacer» con prefijo?',['Deshacer','Hacedor','Hacemos'],0,'El prefijo des- forma el antónimo deshacer.'),
+q('¿Qué es una palabra derivada?',['Una palabra formada a partir de otra','Una palabra sin significado','Un texto de muchos párrafos'],0,'Se forma a partir de otra con morfemas derivativos.')],
+'ct2-diptongos':[
+q('¿Cómo se separa «pueblo»?',['Pue-blo','Pu-e-blo','Pueb-lo'],0,'Ue forma diptongo en pue-blo.'),
+q('¿Qué vocales forman diptongo en «reino»?',['Ei','Eo','Ie'],0,'Rei-no contiene el diptongo ei.'),
+q('¿Qué palabra contiene el diptongo ui?',['Ruina','Casa','Pera'],0,'Rui-na contiene el diptongo ui.'),
+q('¿Cómo se separa «paisaje»?',['Pai-sa-je','Pa-i-sa-je','Pais-aj-e'],0,'Ai forma diptongo en pai-sa-je.'),
+q('¿Qué palabra está bien escrita?',['También','Tambien','Tambíen'],0,'También es aguda terminada en n; la tilde va sobre la vocal abierta e.')],
+'ct2-narracion':[
+q('«Al caer la noche, Nora abrió la caja». ¿Qué indica el tiempo?',['Al caer la noche','Nora','La caja'],0,'Al caer la noche sitúa el momento.'),
+q('«En la azotea, Luis observó las estrellas». ¿Cuál es el espacio?',['La azotea','Luis','Las estrellas'],0,'La azotea es el lugar de la acción.'),
+q('«Yo guardé la carta». ¿Quién cuenta la historia?',['Un narrador en primera persona','Un narrador en tercera persona','Una tabla'],0,'El narrador usa la primera persona.'),
+q('«Marta recogió la llave». ¿Qué ocurrió?',['Marta recogió la llave','Marta es un lugar','La llave es el tiempo'],0,'La acción es recoger la llave.'),
+q('¿Qué elemento responde a la pregunta «¿cuándo sucede?»?',['El tiempo','El espacio','El protagonista'],0,'El tiempo indica el momento de los hechos.')]
+};
+for(const game of castellanoTema2Games) game.questions.push(...(extra[game.id]||[]));
